@@ -36,10 +36,10 @@
     <h1>ChordPad</h1>
     <p class="lead">A chord-chart practice looper for Android. Type a progression, get a pad bed and
       a click, and practise in the key the app infers.</p>
-    <a class="download" href="https://github.com/KickStomp/chordpad/releases/latest/download/chordpad.apk">Download ChordPad 1.1</a>
-    <p class="meta">45.2 MB · Android 10+ · version 1.1 (versionCode 2) · signed APK · no Play Store needed</p>
-    <p class="meta">or <a href="https://github.com/KickStomp/chordpad/releases/tag/v1.1">the versioned release page</a> ·
-      <a href="https://github.com/KickStomp/chordpad/releases/latest/download/chordpad-1.1.apk">chordpad-1.1.apk</a></p>
+    <a class="download" href="https://github.com/KickStomp/chordpad/releases/latest/download/chordpad.apk">Download ChordPad 1.1.1</a>
+    <p class="meta">45.2 MB · Android 10+ · version 1.1.1 (versionCode 3) · signed APK · no Play Store needed</p>
+    <p class="meta">or <a href="https://github.com/KickStomp/chordpad/releases/tag/v1.1.1">the versioned release page</a> ·
+      <a href="https://github.com/KickStomp/chordpad/releases/latest/download/chordpad-1.1.1.apk">chordpad-1.1.1.apk</a></p>
   </header>
 
   <div class="shots">
@@ -56,6 +56,12 @@
     <li>Tap tempo, per-song octave transpose, live settings while the loop plays.</li>
     <li>Saved library with progressions shown, plus JSON export/import for backup.</li>
     <li>An in-app <strong>?</strong> help dialog explains the syntax.</li>
+  </ul>
+
+  <h2>New in 1.1.1</h2>
+  <ul>
+    <li>Android cloud backup is disabled: charts, drafts and settings never leave the device, and
+      uninstalling now really removes them.</li>
   </ul>
 
   <h2>New in 1.1</h2>
@@ -77,10 +83,13 @@
   </ol>
 
   <div class="box">
-    <h2 style="margin-top:0">Updating from 1.0</h2>
-    <p>1.0 was signed with a temporary development key; 1.1 uses a real upload key. Android will
-      refuse to install 1.1 over 1.0. In the old app, open <strong>LIB → EXPORT</strong> and keep the
-      JSON file, uninstall 1.0, install 1.1, then <strong>LIB → IMPORT</strong> that file.</p>
+    <h2 style="margin-top:0">Updating from 1.0 or 1.1</h2>
+    <p>1.0 was signed with a temporary development key; 1.1 and later use a real upload key, so
+      Android may refuse to install over 1.0. Export first either way: open <strong>LIB → EXPORT</strong>
+      and keep the JSON file, then install. If Android will not update in place, uninstall the old
+      version, install the new one and use <strong>LIB → IMPORT</strong>.</p>
+    <p>1.1 still allowed Android's cloud backup, so a reinstall may bring songs back from the
+      device backup after a delay. 1.1.1 opts out of backup entirely; export is the reliable path.</p>
   </div>
 
   <h2>Updates</h2>
@@ -92,17 +101,19 @@
 
   <h2>Privacy</h2>
   <p>ChordPad has no internet permission, no analytics, no ads and no accounts. Charts, settings
-    and backups stay on the device; a backup is written only where you choose in the system file
-    picker. Uninstalling removes the app's data, so keep a backup if you might reinstall.</p>
+    and backups stay on the device, and the app is excluded from Android's cloud backup and
+    device-to-device transfer. A backup is written only where you choose in the system file picker.
+    Uninstalling removes the app's data, so keep a backup if you might reinstall.</p>
 
   <h2>Verify the download</h2>
-  <p>APK SHA-256:<br><code>a2b00074e834fe9f2d8ff344898723952e894ed483bbff0f99dbf35af4057c0e</code></p>
+  <p>APK SHA-256:<br><code>56a6127a637cd29c488316299e34dd30bf186620295a0b7593aff6286e83dd06</code></p>
   <p>Signing certificate SHA-256 (CN=ChordPad):<br>
     <code>77:67:97:AA:1A:B3:D4:6C:16:C5:54:1B:3E:27:8E:29:85:BB:B4:1A:A0:14:2A:A7:FF:30:E3:D8:BA:00:AE:EF</code></p>
 
   <h2>Requirements and testing</h2>
-  <p>Android 10 (API 29) or newer. Tested on Android 15 on a Lenovo TB328FU tablet and a Pixel 8a.
-    Older Android versions are supported in the build but have not yet been device-verified.</p>
+  <p>Android 10 (API 29) or newer. Tested on Android 15 on a Lenovo TB328FU tablet (1.1.1) and a
+    Pixel 8a (1.1.1). Older Android versions are supported by the build but have not yet been
+    device-verified.</p>
 
   <footer>
     ChordPad is a personal practice tool. No warranty; keep a backup before uninstalling.<br>

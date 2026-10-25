@@ -4,7 +4,7 @@ Download page and release assets for **ChordPad**, a chord-chart practice looper
 
 - Page: https://kickstomp.github.io/chordpad/
 - Latest APK: https://github.com/KickStomp/chordpad/releases/latest/download/chordpad.apk
-- Versioned APK: https://github.com/KickStomp/chordpad/releases/latest/download/chordpad-1.1.apk
+- Versioned APK: https://github.com/KickStomp/chordpad/releases/latest/download/chordpad-1.1.1.apk
 
 ## What is in this repo
 
@@ -33,13 +33,15 @@ Download the APK on the Android device and open it. Android asks once to allow i
 browser (Settings → Apps → Special access → Install unknown apps). ChordPad needs no account, no
 network and no runtime permissions.
 
-Existing 1.0 installs were signed with a temporary development key and cannot be upgraded in place:
-export the library (LIB → EXPORT) first, uninstall, install 1.1, then import the JSON.
+Existing 1.0 installs were signed with a temporary development key and may not upgrade in place:
+export the library (LIB → EXPORT) first, then install; if Android refuses, uninstall and import the
+JSON afterwards. 1.1.1 and later opt out of Android's cloud backup, so uninstall really removes the
+data — the JSON export is the only safety net.
 
 ## Verification
 
-- APK SHA-256 (1.1):
-  `a2b00074e834fe9f2d8ff344898723952e894ed483bbff0f99dbf35af4057c0e`
+- APK SHA-256 (1.1.1):
+  `56a6127a637cd29c488316299e34dd30bf186620295a0b7593aff6286e83dd06`
 - Signing certificate SHA-256 (CN=ChordPad):
   `77:67:97:AA:1A:B3:D4:6C:16:C5:54:1B:3E:27:8E:29:85:BB:B4:1A:A0:14:2A:A7:FF:30:E3:D8:BA:00:AE:EF`
 
