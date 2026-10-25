@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChordPad — chord practice looper</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0b0d10; color: #e8edf2;
+         font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 880px; margin: 0 auto; padding: 48px 22px 72px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); margin: 0 0 6px; letter-spacing: -0.02em; }
+  h2 { margin: 38px 0 10px; font-size: 1.15rem; letter-spacing: 0.02em; }
+  p { margin: 0 0 14px; color: #b8c2cc; }
+  a { color: #3ddc97; }
+  .accent { color: #3ddc97; }
+  .lead { font-size: 1.1rem; max-width: 640px; }
+  .download { display: inline-block; margin: 22px 0 8px; padding: 14px 22px; border-radius: 12px;
+              background: #3ddc97; color: #06120d; font-weight: 700; text-decoration: none; }
+  .download:hover { filter: brightness(1.05); }
+  .meta { font-size: 0.9rem; color: #7e8a96; }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 16px; }
+  .shots img { width: 100%; border-radius: 12px; border: 1px solid #232a31; display: block; }
+  ul { color: #b8c2cc; padding-left: 22px; }
+  li { margin: 6px 0; }
+  code { background: #161b21; border: 1px solid #232a31; border-radius: 6px; padding: 2px 6px;
+         font-size: 0.86em; word-break: break-all; }
+  .box { background: #11161b; border: 1px solid #232a31; border-radius: 14px; padding: 18px 20px; margin: 20px 0; }
+  footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid #232a31; font-size: 0.85rem; color: #7e8a96; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>ChordPad</h1>
+    <p class="lead">A chord-chart practice looper for Android. Type a progression, get a pad bed and
+      a click, and practise in the key the app infers.</p>
+    <a class="download" href="https://github.com/KickStomp/chordpad/releases/latest/download/chordpad.apk">Download ChordPad 1.1</a>
+    <p class="meta">45.2 MB · Android 10+ · version 1.1 (versionCode 2) · signed APK · no Play Store needed</p>
+    <p class="meta">or <a href="https://github.com/KickStomp/chordpad/releases/tag/v1.1">the versioned release page</a> ·
+      <a href="https://github.com/KickStomp/chordpad/releases/latest/download/chordpad-1.1.apk">chordpad-1.1.apk</a></p>
+  </header>
+
+  <div class="shots">
+    <img src="screenshot-practice.png" alt="ChordPad practice screen">
+    <img src="screenshot-settings.png" alt="ChordPad settings with pad presets">
+    <img src="screenshot-library.png" alt="ChordPad song library with progressions">
+  </div>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Type a chart such as <code>G D 2C 2Am</code>. Each chord lasts a bar; a leading number sets its beats.</li>
+    <li>Loops a pad bed and a click, infers the key, and voices the chords from the tonic.</li>
+    <li>Fifteen pad sounds, four click sounds, accent patterns and 8th/16th/triplet subdivisions.</li>
+    <li>Tap tempo, per-song octave transpose, live settings while the loop plays.</li>
+    <li>Saved library with progressions shown, plus JSON export/import for backup.</li>
+    <li>An in-app <strong>?</strong> help dialog explains the syntax.</li>
+  </ul>
+
+  <h2>New in 1.1</h2>
+  <ul>
+    <li>Static, calibrated mix that stays audible at normal system volume.</li>
+    <li>TAP under the BPM stepper.</li>
+    <li>Per-song octave (−1 / 0 / +1) for the chord voicings.</li>
+    <li>Help dialog and Library progression lines.</li>
+    <li>Five new square/pulse pads: Square Bed, Hollow Organ, Pulse Choir, Grit Square, Velvet Rhodes.</li>
+    <li>Library backup export/import and a batch of reliability fixes (audio-thread locking, draft autosave, corrupt-library rescue, parser overflow, 44.1 kHz resampling).</li>
+  </ul>
+
+  <h2>Install</h2>
+  <ol>
+    <li>Download the APK above.</li>
+    <li>Open it on the Android device. If asked, allow installing from this source (Settings → Apps →
+      Special access → Install unknown apps).</li>
+    <li>No account, no network, no special permissions.</li>
+  </ol>
+
+  <div class="box">
+    <h2 style="margin-top:0">Updating from 1.0</h2>
+    <p>1.0 was signed with a temporary development key; 1.1 uses a real upload key. Android will
+      refuse to install 1.1 over 1.0. In the old app, open <strong>LIB → EXPORT</strong> and keep the
+      JSON file, uninstall 1.0, install 1.1, then <strong>LIB → IMPORT</strong> that file.</p>
+  </div>
+
+  <h2>Privacy</h2>
+  <p>ChordPad has no internet permission, no analytics, no ads and no accounts. Charts, settings
+    and backups stay on the device; a backup is written only where you choose in the system file
+    picker. Uninstalling removes the app's data, so keep a backup if you might reinstall.</p>
+
+  <h2>Verify the download</h2>
+  <p>APK SHA-256:<br><code>a2b00074e834fe9f2d8ff344898723952e894ed483bbff0f99dbf35af4057c0e</code></p>
+  <p>Signing certificate SHA-256 (CN=ChordPad):<br>
+    <code>77:67:97:AA:1A:B3:D4:6C:16:C5:54:1B:3E:27:8E:29:85:BB:B4:1A:A0:14:2A:A7:FF:30:E3:D8:BA:00:AE:EF</code></p>
+
+  <h2>Requirements and testing</h2>
+  <p>Android 10 (API 29) or newer. Tested on Android 15 on a Lenovo TB328FU tablet and a Pixel 8a.
+    Older Android versions are supported in the build but have not yet been device-verified.</p>
+
+  <footer>
+    ChordPad is a personal practice tool. No warranty; keep a backup before uninstalling.
+  </footer>
+</main>
+</body>
+</html>
