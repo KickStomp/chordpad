@@ -1,0 +1,17 @@
+[
+  { "file": "default_pad.wav",   "label": "Default",       "rootMidi": 48 },
+  { "file": "analog_sine.wav",   "label": "Analog Sine",   "rootMidi": 48 },
+  { "file": "cathedral.wav",     "label": "Cathedral",     "rootMidi": 48 },
+  { "file": "clean_organ.wav",   "label": "Clean Organ",   "rootMidi": 48 },
+  { "file": "dark_analog.wav",   "label": "Dark Analog",   "rootMidi": 48 },
+  { "file": "dark_uno.wav",      "label": "Dark Uno",      "rootMidi": 48 },
+  { "file": "resonant.wav",      "label": "Resonant",      "rootMidi": 48 },
+  { "file": "soft_square.wav",   "label": "Soft Square",   "rootMidi": 48 },
+  { "file": "strings.wav",       "label": "Strings",       "rootMidi": 48 },
+  { "file": "triangle_core.wav", "label": "Triangle Core", "rootMidi": 48 },
+  { "file": "square_bed.wav",    "label": "Square Bed",    "rootMidi": 48 },
+  { "file": "hollow_organ.wav",  "label": "Hollow Organ",  "rootMidi": 48 },
+  { "file": "pulse_choir.wav",   "label": "Pulse Choir",   "rootMidi": 48 },
+  { "file": "grit_square.wav",   "label": "Grit Square",   "rootMidi": 48 },
+  { "file": "velvet_rhodes.wav", "label": "Velvet Rhodes", "rootMidi": 48 }
+]
