@@ -1,4 +1,5 @@
-const CACHE = 'chordpad-v3'
+const CACHE = 'chordpad-v4'
+const DOWNLOAD_CACHE = 'chordpad-downloads'
 const SHELL = ['./', 'index.html', 'manifest.webmanifest']
 
 async function precache() {
@@ -22,7 +23,13 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))))
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((key) => key !== CACHE && key !== DOWNLOAD_CACHE)
+            .map((key) => caches.delete(key))
+        )
+      )
       .then(() => self.clients.claim())
   )
 })
@@ -30,7 +37,24 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const request = event.request
   if (request.method !== 'GET') return
-  if (new URL(request.url).origin !== self.location.origin) return
+  const url = new URL(request.url)
+  if (url.origin !== self.location.origin) return
+
+  // A page writes the song response into DOWNLOAD_CACHE, then opens this URL. Returning the cached
+  // response lets the download carry a real Content-Disposition filename instead of a blob UUID.
+  if (url.pathname.endsWith('/__download/ping')) {
+    event.respondWith(new Response('ok', { headers: { 'x-chordpad-download': '1' } }))
+    return
+  }
+  if (url.pathname.endsWith('/__download/song')) {
+    event.respondWith(
+      caches
+        .open(DOWNLOAD_CACHE)
+        .then((cache) => cache.match(request))
+        .then((response) => response || new Response('Not found', { status: 404 }))
+    )
+    return
+  }
 
   // Navigations go to the network first so a new build's hashed assets are picked up;
   // the cache is only the offline fallback.
