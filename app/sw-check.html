@@ -1,0 +1,34 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChordPad download check</title>
+<body style="font: 16px system-ui; padding: 16px">
+<h3>ChordPad download check</h3>
+<pre id="out">checking…</pre>
+<script>
+;(async () => {
+  const info = {
+    serviceWorker: 'serviceWorker' in navigator,
+    controller: !!navigator.serviceWorker?.controller,
+    caches: 'caches' in window
+  }
+  try {
+    if (navigator.serviceWorker) {
+      await navigator.serviceWorker.register('sw.js')
+      await navigator.serviceWorker.ready
+      if (!navigator.serviceWorker.controller) {
+        await new Promise((resolve) =>
+          navigator.serviceWorker.addEventListener('controllerchange', resolve, { once: true })
+        )
+      }
+      info.controller = !!navigator.serviceWorker.controller
+      info.cacheNames = await caches.keys()
+      const ping = await fetch('__download/ping')
+      info.ping = ping.headers.get('x-chordpad-download')
+    }
+  } catch (error) {
+    info.error = String(error)
+  }
+  document.getElementById('out').textContent = JSON.stringify(info, null, 2)
+})()
+</script>
+</body>
